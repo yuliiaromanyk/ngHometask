@@ -1,0 +1,64 @@
+.container{
+  padding: 20px;
+}
+
+.input {
+  border-radius: 0;
+  outline: none;
+}
+
+.input:hover {
+  border: 1px solid darkgrey;
+}
+
+
+
+.btn:hover {
+  background-color: darkgrey;
+}
+
+.user {
+  border: 1px solid #000000;
+  cursor: pointer;
+  padding: 1em;
+  margin: 1em;
+}
+
+.user:hover {
+  box-shadow: 1px 2px 3px #ccc;
+}
+
+.box button a {
+  color: white;
+  font-size: 15px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.btn {
+  padding: 15px;
+  color:white;
+  border: none;
+  border-radius: 0;
+  background-color: darkgrey;
+}
+
+.detailsInner{
+  height: 300px;
+ width: 100%;
+  margin: 20px;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: gray;
+  color: white;
+}
+.detailsInner img{
+  height: 200px;
+  display: inline;
+}
+.detailsInner a{
+  color: white;
+}

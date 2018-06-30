@@ -1,0 +1,80 @@
+<div class="container">
+
+
+   
+
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+      <div class="form-inline">
+        <input placeholder="Name" class="form-control input-lg input" #name (keyup.enter)="search(name.value); name.value=''; " />
+       
+        <button class="btn btn-primary btn-lg" (click)="search(name.value); name.value=''; table = true;">Search</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="results.length && selected" >
+
+      <div class=" box detailsInner text-center container row">
+        
+         
+          <div class="col-md-6">
+
+              <img  src="{{selectedUser.avatar_url}}" class="img-responsive ">
+            </div>
+          
+
+          <div class="col-md-6">
+          <span   *ngIf="selectedUser.name"><a href="{{ selectedUser.html_url }}" target="_blank"><h3>{{ selectedUser.name }} </h3></a></span>
+          
+        
+          <div *ngIf="selectedUser.following"> Following: <b>{{ selectedUser.following }}  </b> </div>
+          
+          <div *ngIf="selectedUser.followers"> Followers:  <b>{{ selectedUser.followers }} </b></div>
+
+          <div *ngIf="selectedUser.public_repos"> Repos:<b> {{ selectedUser.public_repos }}</b> </div>
+          
+          <div *ngIf="selectedUser.public_gists"> Gists: <b> {{ selectedUser.public_gists }} </b></div>
+          
+        </div>
+        <br>
+          <button class="btn btn-sm btn-warning" (click)="selected = !selected; table = true">Back</button>
+    
+      </div>
+    </div>
+
+
+
+
+
+
+  <div *ngIf="table" class="row">
+    <p class="text-center" style="padding: 1em; " *ngIf="error_text">{{ error_text }}</p>
+
+    <div [ngClass]="{'col-md-9': selected, 'col-md-12': !selected}">
+
+      <div class="user col-md-12 text-center row"   ng-if ="table"   *ngFor="let user of results" >
+        <div class="img_container col-md-4">
+
+          <img src="{{user.avatar_url}}" class="img-circle" width="100" height="100">
+        </div>
+
+        <div class="details_container text-left">
+        <h2><a> {{ user.login }}</a></h2> 
+        </div>
+
+        <button class="btn">  <a href="{{user.html_url}}" target="_blank" class="login_name">See profile  </a> </button>
+        <button class="btn" (click)="getDetails(user.login); table = !table "> See details </button>
+      </div>
+
+
+    </div>
+
+
+
+    
+  </div>
+</div>
